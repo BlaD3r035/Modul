@@ -19,6 +19,13 @@ def calculate(base: int):
         print("Not a valid number...")
         time.sleep(1)
         return calculate(base)
+    
+    if(not verify.verifyNoNegOrDec(str_num)):
+        clearConsole()
+        print("No negative or decimal numbers (eg., 1.234) are allowed...")
+        time.sleep(1)
+        return calculate(base)
+    
     decimal = (int(str_num) if base == 10 else conversions.toDecimal(str_num,base)[0])
     if(decimal > 1000000):
         print("number is bigger than 1.000.000 (decimal), try again...")
